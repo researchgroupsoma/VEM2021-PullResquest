@@ -6,12 +6,12 @@ frameworkName1 = "Android"
 frameworkName2 = "AWS"
 frameworkName3 = "Azure"
 frameworkName4 = "Spring"
-factorPositionMedianLabel = 1.2
+factorPositionMedianLabel = 1.4
 mainDirectory = "/home/gabriel/Documentos/gabrielsmenezes/VEM2021-PullResquest/"
 
 plotGraphic <- function ()  {
   p1 <- ggplot(all, aes) + 
-    #scale_y_continuous(trans=scales::pseudo_log_trans(base = 10)) +
+    scale_y_continuous(trans=scales::pseudo_log_trans(base = 10)) +
     #scale_y_log10(labels = comma) +
     geom_violin(width=1, trim=TRUE, fill="#87CEFA") + 
     geom_boxplot(width=0.7,alpha=0.7) + ggtitle(title) + 
@@ -84,7 +84,7 @@ dataFramework2=framework2$tempo.para.fechamento
 dataFramework3=framework3$tempo.para.fechamento
 dataFramework4=framework4$tempo.para.fechamento
 title = "Tempo de Fechamento de\nPRs"
-verticalTitle = "Tempo em Dias"
+verticalTitle = "Tempo em Dias (Escala Log)"
 framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
 framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
 framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
@@ -100,7 +100,7 @@ dataFramework2=framework2$tempo.merge
 dataFramework3=framework3$tempo.merge
 dataFramework4=framework4$tempo.merge
 title = "Tempo Para Merge de\nPR"
-verticalTitle = "Tempo em Dias"
+verticalTitle = "Tempo em Dias (Escala Log)"
 framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
 framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
 framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
@@ -115,8 +115,8 @@ dataFramework1=framework1$merge.user.seguidores
 dataFramework2=framework2$merge.user.seguidores
 dataFramework3=framework3$merge.user.seguidores
 dataFramework4=framework4$merge.user.seguidores
-title = "Número de Seguidores de\nQuem Faz Merge"
-verticalTitle = "Número de Seguidores"
+title = "Número de Seguidores de\nQuem Aceita Pull Request"
+verticalTitle = "Número de Seguidores (Escala Log)"
 framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
 framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
 framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
