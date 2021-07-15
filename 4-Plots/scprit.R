@@ -140,3 +140,74 @@ framework4_median =  median(unlist(dataFramework4), na.rm = TRUE)
 aes = aes(factor(framework,levels = c(frameworkName1, frameworkName2, frameworkName3, frameworkName4)), merge.user.tempo.no.GitHub)
 plotGraphic()
 ggsave(paste(mainDirectory, "4-Plots/tempo-de-github.pdf", sep = ""), width = 4.5, height = 4.5)
+
+####### Contributors and Authors
+framework1=read.csv(paste(mainDirectory, "4-Interseccao/android.csv", sep = ""), sep=",",header=T)
+framework2=read.csv(paste(mainDirectory, "4-Interseccao/aws.csv", sep = ""), sep=",",header=T)
+framework3=read.csv(paste(mainDirectory, "4-Interseccao/azure.csv", sep = ""), sep=",",header=T)
+framework4=read.csv(paste(mainDirectory, "4-Interseccao/spring.csv", sep = ""), sep=",",header=T)
+all=rbind.data.frame(framework1, framework2, framework3, framework4)
+
+
+#### Número de Contribuidores
+dataFramework1=framework1$contributors
+dataFramework2=framework2$contributors
+dataFramework3=framework3$contributors
+dataFramework4=framework4$contributors
+title = "Número de Contribuidores"
+verticalTitle = "Contribuidores (escala log)"
+framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
+framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
+framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
+framework4_median =  median(unlist(dataFramework4), na.rm = TRUE)
+aes = aes(factor(framework,levels = c(frameworkName1, frameworkName2, frameworkName3, frameworkName4)), contributors)
+plotGraphic()
+ggsave(paste(mainDirectory, "4-Plots/contribuidores.pdf", sep = ""), width = 4.5, height = 4.5)
+
+
+#### Número de Autores
+dataFramework1=framework1$authors
+dataFramework2=framework2$authors
+dataFramework3=framework3$authors
+dataFramework4=framework4$authors
+title = "Número de Autores"
+verticalTitle = "Autores (escala log)"
+framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
+framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
+framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
+framework4_median =  median(unlist(dataFramework4), na.rm = TRUE)
+aes = aes(factor(framework,levels = c(frameworkName1, frameworkName2, frameworkName3, frameworkName4)), authors)
+plotGraphic()
+ggsave(paste(mainDirectory, "4-Plots/autores.pdf", sep = ""), width = 4.5, height = 4.5)
+
+
+#### Porcentagem dos Contribuidores que são Autores
+dataFramework1=framework1$X._of_author_in_contributors_in_contributors
+dataFramework2=framework2$X._of_author_in_contributors_in_contributors
+dataFramework3=framework3$X._of_author_in_contributors_in_contributors
+dataFramework4=framework4$X._of_author_in_contributors_in_contributors
+title = "Porcentagem de Contribuidores\nAutores"
+verticalTitle = "Porcentagem (escala log)"
+framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
+framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
+framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
+framework4_median =  median(unlist(dataFramework4), na.rm = TRUE)
+es = aes(factor(framework,levels = c(frameworkName1, frameworkName2, frameworkName3, frameworkName4)), X._of_author_in_contributors_in_contributors)
+plotGraphic()
+ggsave(paste(mainDirectory, "4-Plots/porcentagem_contribuidores_autores.pdf", sep = ""), width = 4.5, height = 4.5)
+
+
+#### Porcentagem dos Autores que são Contribuidores
+dataFramework1=framework1$X._of_author_in_contributors_in_authors
+dataFramework2=framework2$X._of_author_in_contributors_in_authors
+dataFramework3=framework3$X._of_author_in_contributors_in_authors
+dataFramework4=framework4$X._of_author_in_contributors_in_authors
+title = "Porcentagem de Autores\nContribuidores"
+verticalTitle = "Porcentagem (escala log)"
+framework1_median =  median(unlist(dataFramework1), na.rm = TRUE)
+framework2_median =  median(unlist(dataFramework2), na.rm = TRUE)
+framework3_median =  median(unlist(dataFramework3), na.rm = TRUE)
+framework4_median =  median(unlist(dataFramework4), na.rm = TRUE)
+es = aes(factor(framework,levels = c(frameworkName1, frameworkName2, frameworkName3, frameworkName4)), X._of_author_in_contributors_in_authors)
+plotGraphic()
+ggsave(paste(mainDirectory, "4-Plots/porcentagem_autores_contribuidores.pdf", sep = ""), width = 4.5, height = 4.5)
